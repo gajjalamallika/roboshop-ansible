@@ -2,4 +2,35 @@
   hosts: frontend 
   become: yes 
   tasks:
-  - name: 
+  - name: disable nginx default module 
+    ansible.builtin.service:
+      name: nginx
+      enabled: false
+
+  - name: enable nginx:1.24 module 
+    service:
+      name: nginx:1.24 
+      enabled: true 
+
+  - name: install nginx
+    package:
+      name: nginx
+      state: present
+  
+  - name: remove default and install zip and unzip 
+    shell: 
+      rm -rf /usr/share/nginx/html/*  
+      curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
+      cd /usr/share/nginx/html 
+      unzip /tmp/frontend.zip
+      cd /usr/share/nginx/html 
+      unzip /tmp/frontend.zip
+  
+  - name: copy nginx conf 
+    copy:
+      src: nginx.conf 
+      dest: /etc/nginx/nginx.conf 
+  
+  - name: restart nginx 
+    command: systemctl restart nginx 
+    

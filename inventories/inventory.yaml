@@ -7,3 +7,5 @@ catalogue.malshi.online
 [frontend]
 malshi.online
 
+[redis]
+redis.malshi.online 
