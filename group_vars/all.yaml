@@ -1,0 +1,4 @@
+instances: ["mongodb", "redis", "mysql", "rabbitmq", "catalogue", "user", "cart", "shipping", "payment", "frontend"]
+image_id: ami-0220d79f3f480ecf5
+domain_name: malshi.online 
+action: create
