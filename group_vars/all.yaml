@@ -1,5 +1,5 @@
 instances: ["mongodb", "redis"] #, "mysql", "rabbitmq", "catalogue", "user", "cart", "shipping", "payment", "frontend"
-image_id: ami-0220d79f3f480ecf5
-domain_name: malshi.online 
-action: create
-group-id: sg-0e85d62ab28eb894d
+image_id: "ami-0220d79f3f480ecf5"
+domain_name: "malshi.online" 
+action: "create"
+group-id: "sg-0e85d62ab28eb894d"
