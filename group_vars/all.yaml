@@ -2,4 +2,4 @@ instances: ["mongodb", "redis"] #, "mysql", "rabbitmq", "catalogue", "user", "ca
 image_id: ami-0220d79f3f480ecf5
 domain_name: malshi.online 
 action: create
-security-group-id: sg-0e85d62ab28eb894d
+group-id: sg-0e85d62ab28eb894d
