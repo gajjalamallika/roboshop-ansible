@@ -6,7 +6,7 @@
   - name: debug groups vars variables 
     debug:
       msg: "{{ image_id }}"
-      
+
   - name: create ec2 instance 
     amazon.aws.ec2_instance:
       instance_type: t3.micro
@@ -20,4 +20,4 @@
 
   - name: debug ec2 instance output
     debug: 
-      msg: ec2_output 
+      msg: "{{ ec2_output }}" 
