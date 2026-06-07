@@ -4,5 +4,7 @@ domain_name: "malshi.online"
 action: "delete"
 group_id: "sg-0e85d62ab28eb894d"
 zone_id: "Z07103112YA8CK7NN1S5X"
+mongodb_host: "mongodb.malshi.online"
+catalogue_host: "catalogue.malshi.online"
 
  

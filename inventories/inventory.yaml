@@ -1,2 +1,9 @@
 [mongodb]
-mongodb.malshi.online
+mongodb.malshi.online 
+
+[catalogue]
+catalogue.malshi.online
+
+[frontend]
+malshi.online
+
