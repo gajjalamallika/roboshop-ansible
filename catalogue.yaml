@@ -26,8 +26,8 @@
   - name: create /app directory 
     file:
       path: /app
-      mode: 777 
-      state: present 
+      mode: '777' 
+      state: directory
 
   - name: download the zip 
     shell:
