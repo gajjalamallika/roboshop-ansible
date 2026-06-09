@@ -23,7 +23,7 @@
       unzip -o /tmp/frontend.zip
   
   - name: copy nginx conf 
-    copy:
+    template:
       src: nginx.conf 
       dest: /etc/nginx/nginx.conf 
   
