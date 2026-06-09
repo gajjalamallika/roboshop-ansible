@@ -9,3 +9,6 @@ malshi.online
 
 [redis]
 redis.malshi.online 
+
+[user]
+user.malshi.online
