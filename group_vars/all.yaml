@@ -6,5 +6,7 @@ group_id: "sg-0e85d62ab28eb894d"
 zone_id: "Z07103112YA8CK7NN1S5X"
 mongodb_host: "mongodb.malshi.online"
 catalogue_host: "catalogue.malshi.online"
-
- 
+user_host: "user.malshi.online"
+cart_host: "cart.malshi.online"
+shipping_host: "shipping.malshi.online"
+payment_host: "payment.malshi.online"
