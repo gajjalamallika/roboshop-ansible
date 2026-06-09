@@ -3,17 +3,16 @@
   become: yes 
   tasks:
   - name: disbale default redis 
-    service:
-      name: redis 
-      enable: false 
+    command: dnf module disable redis 
+  
   - name: enable redis:7 
-    service: 
-      name: redis:7
-      enable: true 
+    command: dnf module enable redis:7
+
   - name: install redis 
     package:
       name: redis 
       state: present 
+      
   - name: allow connections from all 
     replace:
       path: /etc/redis/redis.conf 
