@@ -22,3 +22,5 @@ mysql.malshi.online
 [shipping]
 shipping.malshi.online 
 
+[rabbitmq]
+rabbitmq.malshi.online

@@ -12,5 +12,6 @@ shipping_host: "shipping.malshi.online"
 payment_host: "payment.malshi.online"
 redis_host: "redis.malshi.online"
 mysql_host: "mysql.malshi.online"
+rabbitmq_host: "rabbitmq.malshi.online"
 
 
