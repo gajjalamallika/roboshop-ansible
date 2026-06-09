@@ -1,4 +1,4 @@
-instances: ["mongodb", "catalogue" ,"mysql", "rabbitmq", "user", "cart", "shipping", "payment", "frontend","redis"] 
+instances: ["mongodb", "catalogue" ,"mysql", "rabbitmq", "user", "cart", "shipping", "payment", "frontend","redis","dispatch"] 
 image_id: "ami-0220d79f3f480ecf5"
 domain_name: "malshi.online" 
 action: "create"
@@ -13,5 +13,6 @@ payment_host: "payment.malshi.online"
 redis_host: "redis.malshi.online"
 mysql_host: "mysql.malshi.online"
 rabbitmq_host: "rabbitmq.malshi.online"
+dispatch_host: "dispatch.malshi.online"
 
 

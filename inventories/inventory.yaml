@@ -27,3 +27,6 @@ rabbitmq.malshi.online
 
 [payment]
 payment.malshi.online
+
+[dispatch]
+dispatch.malshi.online 
