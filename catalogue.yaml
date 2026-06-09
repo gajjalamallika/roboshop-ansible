@@ -53,7 +53,12 @@
     shell:
      systemctl enable catalogue &&  
      systemctl start catalogue
-  
+     
+  - name: copy catalogue-mongo.repo 
+    copy: 
+      src: catalogue-mongo.repo 
+      dest: /etc/yum.repos.d/mongo.repo 
+    
   - name: install mongodb-mongosh
     package:
       name: mongodb-mongosh 
