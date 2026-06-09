@@ -4,20 +4,16 @@
   tasks:
 
   - name: disable nodejs default module 
-    ansible.builtin.service:
-      name: nodejs
-      enabled: false
+    ansible.builtin.command: dnf module disable nodejs -y
 
   - name: enable nodejs:20 module 
-    service:
-      name: nodejs:20 
-      enabled: true 
+    ansible.builtin.command: dnf module enable nodejs:20 -y  
 
   - name: install nodejs
     package:
       name: nodejs
       state: present 
-  
+    
   - name: create roboshop system user
     user:
       name: roboshop 
