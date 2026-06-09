@@ -49,10 +49,9 @@
     command: systemctl daemon-reload 
 
   - name: enable and start catalogue service 
-    service:
-      enable: true
-      name: catalogue 
-      start: started 
+    shell:
+     systemctl enable catalogue &&  
+     systemctl start catalogue
   
   - name: install mongodb-mongosh
     package:
