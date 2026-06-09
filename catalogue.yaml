@@ -32,9 +32,9 @@
   - name: download the zip 
     shell:
       echo "download"
-      # curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &&
-      # cd /app && 
-      # unzip /tmp/catalogue.zip 
+      curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &&
+      cd /app && 
+      unzip -o /tmp/catalogue.zip 
   
   - name: cd /app and install npm 
     command: npm install
@@ -53,7 +53,7 @@
     shell:
      systemctl enable catalogue &&  
      systemctl start catalogue
-     
+
   - name: copy catalogue-mongo.repo 
     copy: 
       src: catalogue-mongo.repo 
