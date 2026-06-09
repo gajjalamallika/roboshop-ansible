@@ -31,8 +31,8 @@
 
   - name: download the zip 
     shell:
-      curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip 
-      cd /app
+      curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &&
+      cd /app && 
       unzip /tmp/catalogue.zip 
   
   - name: cd /app and install npm 
