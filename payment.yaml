@@ -1,0 +1,54 @@
+- name: payment setup 
+  hosts: payment 
+  become: yes 
+  tasks: 
+  - name:  install packages
+    package: 
+      name: {{ item }}
+      state: present 
+    loop:
+    - python3 
+    - gcc 
+    - python3-devel 
+
+  - name: create roboshop system user
+    user:
+      name: roboshop 
+      system: true 
+      create_home: true 
+      shell: /sbin/nologin
+      state: present
+      comment: "roboshop system user"
+  
+  - name: create directory 
+    file: 
+      name: /app 
+      state: directory
+      mode: '777'
+  
+  - name: download the zip and unzip 
+    shell: 
+      curl -L -o /tmp/payment.zip https://roboshop-artifacts.s3.amazonaws.com/payment-v3.zip &&  
+      cd /app && 
+      unzip -o /tmp/payment.zip
+  
+  - name: pip install requirements 
+    shell:
+      pip3 install -r requirements.txt  
+    args:
+      chdir: /app 
+
+  - name: copy payment.service 
+    template: 
+      src: payment.service
+      dest: /etc/systemd/system/payment.service 
+  
+  - name: daemnreload 
+    command: systemctl daemon-reload 
+  
+  - name: enable and start payment 
+    shell:
+      systemctl enable payment && 
+      systemctl start payment
+
+ 

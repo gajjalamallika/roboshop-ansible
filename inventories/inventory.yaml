@@ -24,3 +24,6 @@ shipping.malshi.online
 
 [rabbitmq]
 rabbitmq.malshi.online
+
+[payment]
+payment.malshi.online
