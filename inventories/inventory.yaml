@@ -12,3 +12,9 @@ redis.malshi.online
 
 [user]
 user.malshi.online
+
+[cart]
+cart.malshi.online 
+
+[mysql]
+mysql.malshi.online
