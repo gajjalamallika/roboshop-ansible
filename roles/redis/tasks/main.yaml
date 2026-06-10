@@ -1,0 +1,21 @@
+- name: redis setup 
+  hosts: redis 
+  become: yes 
+  tasks:
+  - name: disbale default redis 
+    command: dnf module disable redis -y 
+  
+  - name: enable redis:7 
+    command: dnf module enable redis:7 -y 
+
+  - name: install redis 
+    package:
+      name: redis 
+      state: present 
+
+  - name: allow connections from all 
+    replace:
+      path: /etc/redis/redis.conf 
+      regexp: '127.0.0.1'
+      replace: '0.0.0.0'
+  

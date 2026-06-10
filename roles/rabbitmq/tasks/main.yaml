@@ -1,0 +1,20 @@
+- name: rabbitmq 
+  hosts: rabbitmq 
+  become: yes 
+  tasks:
+  - name: copy rabbitmq.repo 
+    copy:
+      src: rabbitmq.repo 
+      dest: /etc/yum.repos.d/rabbitmq.repo 
+  - name: install rabbitmq 
+    package:
+      name: rabbitmq-server
+      state: present 
+  - name: enable and start rabbitmq 
+    shell:
+      systemctl enable rabbitmq-server && 
+      systemctl start rabbitmq-server 
+  - name: add user
+    shell: 
+     rabbitmqctl add_user roboshop roboshop123 && 
+     rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"

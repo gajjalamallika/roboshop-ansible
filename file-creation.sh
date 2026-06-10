@@ -1,14 +1,15 @@
 #!/bin/bash
 folders=$(find roles -type d | awk -F"/" '{print $2}')
 
-# for i in ${folders[@]}
-# do 
-#   echo "folder $i"
-#   mkdir -p "roles/$i/files"
-#   mkdir -p "roles/$i/templates"
-#   mkdir -p "roles/$i/tasks"
-#   mkdir -p "roles/$i/vars"
-# done 
+
+for i in ${folders[@]}
+do 
+  echo "folder $i"
+  mkdir -p "roles/$i/files"
+  mkdir -p "roles/$i/templates"
+  mkdir -p "roles/$i/tasks"
+  mkdir -p "roles/$i/vars"
+done 
 
 #move files to respective folders 
 

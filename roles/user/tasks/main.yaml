@@ -1,0 +1,53 @@
+- name: user setup
+  hosts: user 
+  become: yes 
+  tasks: 
+
+  - name: disable default nodejs 
+    shell:
+      dnf module disable nodejs -y &&
+      dnf module enable nodejs:20 -y
+  
+  - name: install nodejs 
+    package:
+      name: nodejs
+      state: present 
+  
+  - name: create roboshop system user
+    user:
+      name: roboshop 
+      system: true 
+      create_home: true 
+      shell: /sbin/nologin
+      state: present
+      comment: "roboshop system user"
+  
+  - name: create directory 
+    file: 
+      name: /app 
+      state: directory
+      mode: '777'
+  
+  - name: download the zip and unzip 
+    shell: 
+      curl -L -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip &&  
+      cd /app && 
+      unzip -o /tmp/user.zip
+  
+  - name: npm install 
+    command: npm install 
+    args:
+      chdir: /app 
+
+  - name: copy user.service 
+    template: 
+      src: user.service
+      dest: /etc/systemd/system/user.service 
+  
+  - name: daemnreload 
+    command: systemctl daemon-reload 
+  
+  - name: enable and start user 
+    shell:
+      systemctl enable user && 
+      systemctl start user 
