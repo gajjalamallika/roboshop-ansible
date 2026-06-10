@@ -1,6 +1,7 @@
 #!/bin/bash
 folders=$(find roles -type d | awk -F"/" '{print $2}')
 
+
 for i in ${folders[@]}
 do 
   echo "folder $i"
